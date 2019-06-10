@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class ItemComponent {
+    itemName: string = "Huy";
     showImage: boolean = false;
     imgWidth: number = 50;
     imgMargin: number = 2;

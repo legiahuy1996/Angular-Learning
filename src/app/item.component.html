@@ -1,3 +1,5 @@
+<label>Name the item: </label><input type="text" [(ngModel)]='itemName' />
+<h4>Item's name: {{itemName}}</h4>
 <table *ngIf='items && items.length'>
     <tbody>
         <tr>
@@ -10,7 +12,6 @@
                     [style.margin.px]='imgMargin' *ngIf='showImage'> </td>
             <td>{{item.ID}}</td>
             <td>{{item.value}}</td>
-
         </tr>
     </tbody>
 </table>
