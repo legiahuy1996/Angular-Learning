@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+  // items: any[] = [
+  //   {
+  //     "ID": 1,
+  //     "value": "one"
+  //   },
+  //   {
+  //     "ID": 2,
+  //     "value": "two"
+  //   }
+  // ];
 }
