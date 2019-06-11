@@ -4,7 +4,7 @@ import { Iitem } from '../item';
 @Component({
     selector: 'app-item',
     templateUrl: './item.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./item.component.css']
 })
 export class ItemComponent {
     itemName: string = "Huy";
