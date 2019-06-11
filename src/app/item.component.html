@@ -6,12 +6,14 @@
             <th><button (click)='toggleButton()'> {{showImage? 'Hide' : 'Show'}} Image</button></th>
             <th>id</th>
             <th>Value</th>
+            <th>Amount</th>
         </tr>
         <tr *ngFor='let item of items'>
             <td><img [src]='item.imageSrc' [title]='item.value' [style.width.px]='imgWidth'
                     [style.margin.px]='imgMargin' *ngIf='showImage'> </td>
             <td>{{item.ID}}</td>
             <td>{{item.value}}</td>
+            <td>{{item.Amount | currency:"VND"}}</td>
         </tr>
     </tbody>
 </table>
