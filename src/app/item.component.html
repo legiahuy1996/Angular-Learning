@@ -1,19 +1,21 @@
-<label>Name the item: </label><input type="text" [(ngModel)]='itemName' />
-<h4>Item's name: {{itemName}}</h4>
+<label>Filter code: </label><input type="text" [(ngModel)]='listfiltered' />
+<h4>Filter By: {{listfiltered}}</h4>
 <table *ngIf='items && items.length'>
     <tbody>
         <tr>
             <th><button (click)='toggleButton()'> {{showImage? 'Hide' : 'Show'}} Image</button></th>
             <th>id</th>
             <th>Code</th>
+            <th>Name</th>
             <th>Value</th>
             <th>Amount</th>
         </tr>
-        <tr *ngFor='let item of items'>
+        <tr *ngFor='let item of filteredItem'>
             <td><img [src]='item.imageSrc' [title]='item.value' [style.width.px]='imgWidth'
                     [style.margin.px]='imgMargin' *ngIf='showImage'> </td>
             <td>{{item.ID}}</td>
             <td>{{item.Code | ConvertToSpace : '-'}}</td>
+            <td>{{item.Name}}</td>
             <td>{{item.value}}</td>
             <td>{{item.Amount | currency:"VND"}}</td>
         </tr>

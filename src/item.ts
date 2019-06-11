@@ -3,5 +3,6 @@ export interface Iitem {
     value: string,
     imageSrc: string,
     Amount: number,
-    Code: string
+    Code: string,
+    Name: string
 }
