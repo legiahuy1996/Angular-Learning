@@ -1,3 +1,7 @@
 th{
     color: brown;
 }
+table, th, td {
+    border: 1px solid red;
+    margin: auto;
+  }
