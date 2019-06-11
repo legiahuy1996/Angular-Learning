@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Iitem } from '../item';
 
 @Component({
     selector: 'app-item',
@@ -10,7 +11,7 @@ export class ItemComponent {
     showImage: boolean = false;
     imgWidth: number = 50;
     imgMargin: number = 2;
-    items: any[] = [
+    items: Iitem[] = [
         {
             "ID": 1,
             "value": "one",
