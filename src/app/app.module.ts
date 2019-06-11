@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ItemComponent } from './item.component';
 import { FormsModule } from '@angular/forms';
+import { ConvertToSpace } from './item.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent
+    ItemComponent,
+    ConvertToSpace
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@
         <tr>
             <th><button (click)='toggleButton()'> {{showImage? 'Hide' : 'Show'}} Image</button></th>
             <th>id</th>
+            <th>Code</th>
             <th>Value</th>
             <th>Amount</th>
         </tr>
@@ -12,6 +13,7 @@
             <td><img [src]='item.imageSrc' [title]='item.value' [style.width.px]='imgWidth'
                     [style.margin.px]='imgMargin' *ngIf='showImage'> </td>
             <td>{{item.ID}}</td>
+            <td>{{item.Code | ConvertToSpace : '-'}}</td>
             <td>{{item.value}}</td>
             <td>{{item.Amount | currency:"VND"}}</td>
         </tr>
