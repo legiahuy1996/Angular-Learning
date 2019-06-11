@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './item.component';
 import { FormsModule } from '@angular/forms';
 import { ConvertToSpace } from './item.pipe';
+import { CheckItemComponent } from './checkitem.component';
 @NgModule({
   declarations: [
     AppComponent,
     ItemComponent,
-    ConvertToSpace
+    ConvertToSpace,
+    CheckItemComponent
   ],
   imports: [
     BrowserModule,

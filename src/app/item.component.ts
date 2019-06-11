@@ -7,6 +7,7 @@ import { Iitem } from '../item';
     styleUrls: ['./item.component.css']
 })
 export class ItemComponent {
+    title: string = 'itemList';
     _listfiltered: string;
     get listfiltered() {
         return this._listfiltered;
@@ -26,7 +27,8 @@ export class ItemComponent {
             "imageSrc": "https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-9-1527053440039156820618.jpg",
             "Amount": 1000000000,
             "Code": "gbs-10",
-            "Name": "item1"
+            "Name": "item1",
+            "IsCheck": true
         },
         {
             "ID": 2,
@@ -34,7 +36,8 @@ export class ItemComponent {
             "imageSrc": "https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-8-1527053440037953986965.jpg",
             "Amount": 2000000000,
             "Code": "abb-002",
-            "Name": "item2"
+            "Name": "item2",
+            "IsCheck": false
         }
     ];
     constructor() {
@@ -49,5 +52,8 @@ export class ItemComponent {
         const param = this.items.filter((item: Iitem) => { item.Name.toLocaleLowerCase().indexOf(filterBy) !== -1 });
         console.log(param);
         return this.items.filter((item: Iitem) => item.Name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+    onRatingClicked(message: string): void {
+        this.title = 'item List:' + message;
     }
 }

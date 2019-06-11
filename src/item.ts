@@ -4,5 +4,6 @@ export interface Iitem {
     imageSrc: string,
     Amount: number,
     Code: string,
-    Name: string
+    Name: string,
+    IsCheck: boolean
 }
