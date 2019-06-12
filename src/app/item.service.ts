@@ -1,39 +1,35 @@
 import { Injectable } from "@angular/core";
 import { Iitem } from "../item";
-
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 @Injectable({
     providedIn: 'root'
 })
 export class ItemService {
-    getItem(): Iitem[] {
-        return [
-            {
-                "ID": 1,
-                "value": "one",
-                "imageSrc": "https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-9-1527053440039156820618.jpg",
-                "Amount": 1000000000,
-                "Code": "gbs-10",
-                "Name": "item1",
-                "IsCheck": true
-            },
-            {
-                "ID": 2,
-                "value": "two",
-                "imageSrc": "https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-8-1527053440037953986965.jpg",
-                "Amount": 2000000000,
-                "Code": "abb-002",
-                "Name": "item2",
-                "IsCheck": false
-            },
-            {
-                "ID": 3,
-                "value": "three",
-                "imageSrc": "https://ttol.vietnamnetjsc.vn/images/2018/05/25/13/40/net-cuoi-be-gai-8-1527053440037953986965.jpg",
-                "Amount": 3000000000,
-                "Code": "xxa-003",
-                "Name": "item3",
-                "IsCheck": false
-            }
-        ];
+    private itemUrl = 'api/item/item.json';
+    constructor(private http: HttpClient) {
+
+    }
+    getItem(): Observable<Iitem[]> {
+        return this.http.get<Iitem[]>(this.itemUrl).pipe(
+            tap(data => console.log("all: " + JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+    private handleError(err: HttpErrorResponse) {
+        // in a real world app, we may send the server to some remote logging infrastructure
+        // instead of just logging it to the console
+        let errorMessage = '';
+        if (err.error instanceof ErrorEvent) {
+            // A client-side or network error occurred. Handle it accordingly.
+            errorMessage = `An error occurred: ${err.error.message}`;
+        } else {
+            // The backend returned an unsuccessful response code.
+            // The response body may contain clues as to what went wrong,
+            errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+        }
+        console.error(errorMessage);
+        return throwError(errorMessage);
     }
 }

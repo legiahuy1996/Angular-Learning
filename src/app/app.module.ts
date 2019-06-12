@@ -7,6 +7,7 @@ import { ItemComponent } from './item.component';
 import { FormsModule } from '@angular/forms';
 import { ConvertToSpace } from './item.pipe';
 import { CheckItemComponent } from './checkitem.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { CheckItemComponent } from './checkitem.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

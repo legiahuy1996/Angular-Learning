@@ -9,6 +9,7 @@ import { ItemService } from './item.service';
 })
 export class ItemComponent implements OnInit {
     title: string = 'itemList';
+    errorMessage: string;
     _listfiltered: string;
     get listfiltered() {
         return this._listfiltered;
@@ -36,8 +37,12 @@ export class ItemComponent implements OnInit {
         this.title = 'item List:' + message;
     }
     ngOnInit(): void {
-        this.items = this.itemService.getItem();
-        this.listfiltered = "item1";
-        this.filteredItem = this.items;
+        this.itemService.getItem().subscribe(
+            items => {
+                this.items = items
+                this.filteredItem = this.items;
+            },
+            error => this.errorMessage = <any>error
+        );
     }
 }
